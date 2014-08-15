@@ -32,14 +32,24 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+group :development, :test do
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'faker'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :development do
+  gem "growl"
+  gem "guard"
+  gem "guard-bundler"
+  gem "guard-rspec"
+  gem "guard-zeus"
+  gem "rb-inotify", require: false
+  gem "rb-fsevent", require: false
+  gem "rb-fchange", require: false
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :test do
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "database_cleaner", '~> 1.2.0'
+end

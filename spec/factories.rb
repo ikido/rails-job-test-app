@@ -5,4 +5,8 @@ FactoryGirl.define do
     title { Faker::Lorem.sentence }
   end
 
+  factory :payment do
+    status 'new'
+  end
+
 end

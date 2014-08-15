@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815083314) do
+ActiveRecord::Schema.define(version: 20140815111754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20140815083314) do
     t.integer  "line_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
+
+  add_index "payments", ["line_item_id", "service_id"], name: "index_payments_on_line_item_id_and_service_id", unique: true, using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
 end
